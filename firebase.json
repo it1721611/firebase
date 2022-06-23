@@ -12,6 +12,5 @@
         "destination": "/index.html"
       }
     ]
-    "postdeploy": "./messageSlack.sh 'Just deployed to Firebase Hosting'"
   }
 }
