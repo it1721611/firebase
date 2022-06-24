@@ -1,14 +1,14 @@
 on: push
-name: Slack notification
+name: Slack Notification Demo
 jobs:
-  slackNotification:
-    name: Slack Notification
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Slack Notification
-      uses: rtCamp/action-slack-notify@v2
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-      run: |
-        echo ::set-env name=REPOSITORY_NAME::$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $2}' | sed -e "s/:refs//")
+    slackNotification:
+      name: Slack Notification Demo
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@master
+      - name: Slack Notification Demo
+        uses: bryannice/gitactions-slack-notification@2.0.0
+        env:
+          SLACK_INCOMING_WEBHOOK: ${{ secrets.SLACK_INCOMING_WEBHOOK }}
+          SLACK_MESSAGE: 'Repo: ${{ github.repository }} Push: ${{github.actor}} Url: prod-8dee7.web.app'
+          SLACK_TITLE: 'From Github'
